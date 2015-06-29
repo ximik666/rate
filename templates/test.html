@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+  <table  class="table table-striped">
+    <thead>
+      <tr>
+        <th>№</th>
+        <th>ФИО</th>
+        <th>Мобильный</th>
+         <th>Рабочий</th>
+         <th>Домашний</th>
+         <th>IP</th>
+          <th>Skype</th>
+      </tr>
+    </thead>
+    <tbody>
+  {% for tes in printt() %}
+      <tr>
+      <td>{{ tes[0] }}</td>
+      <td>{{ tes[1] }}</td>
+      <td>{{ select_number_j(tes[0],1)[0][0] }}</td>
+          <td>{{ select_number_j(tes[0],3)[0][0] }}</td>
+          <td>{{ select_number_j(tes[0],2)[0][0] }}</td>
+          <td>{{ select_number_j(tes[0],4)[0][0] }}</td>
+          <td>{{ select_skype_j(tes[0])[0][0] }}</td>
+      </tr>
+
+  {% endfor %}
+</tbody>
+  </table>
+{% endblock %}

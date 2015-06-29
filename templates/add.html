@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %} - Добавить{% endblock %}
+{% block content %}
+    <h1>Добавить новый контакт</h1>
+    
+    {% if error %} 
+    <p class=error><strong>Error:</strong> {{ error }}
+    {% endif %}  
+    <form method="post" action="{{ url_for('added') }}">
+      <p><label>Email:</label> <input type="text" name="email"></p>  
+      <p><label>Username:</label> <input type="text" name="username"></p>
+      <p><label>password:</label> <input type="password" name="password"></p>
+      <h2>Optional information:</h2>
+      <p><label>Phone number:</label> <input type="text" name="phone" ></p>
+      <p>Don't worry we'll only show your phone number to people who are your friends.</p>
+      <p><label>Picture:</label><input type="file" name="picture">
+        
+      <p><button type="submit">Send</button></p>
+    </form>
+    <form style="width:40%" method="post" action="{{ url_for('added')}}">
+    <div class="form-group" >
+        <label form="inputEmail">Фамилия И.О.</label>
+        <input type="text" name="email" class="form-control" id="inputEmail" placeholder="Фамилия Имя Отчество">
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div>
+    <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+{% endblock %}
